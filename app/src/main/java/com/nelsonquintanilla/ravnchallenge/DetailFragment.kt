@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.MaterialToolbar
 import com.nelsonquintanilla.ravnchallenge.databinding.FragmentDetailBinding
 
 /**
@@ -23,9 +25,16 @@ class DetailFragment : Fragment() {
         val binding = FragmentDetailBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
+        handleUpButtonClick(binding.materialToolbar)
         setAdapter(binding.rvVehiclesList)
 
         return binding.root
+    }
+
+    private fun handleUpButtonClick(materialToolbar: MaterialToolbar) {
+        materialToolbar.setNavigationOnClickListener { view ->
+            view.findNavController().navigateUp()
+        }
     }
 
     private fun setAdapter(recyclerView: RecyclerView) {
