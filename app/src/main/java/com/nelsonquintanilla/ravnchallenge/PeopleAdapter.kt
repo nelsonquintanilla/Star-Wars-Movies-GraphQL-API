@@ -1,7 +1,9 @@
 package com.nelsonquintanilla.ravnchallenge
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -28,7 +30,24 @@ class PeopleAdapter : ListAdapter<Person, RecyclerView.ViewHolder>(PersonDiffCal
         (holder as PersonViewHolder).bind(person)
     }
 
-    class PersonViewHolder(private val binding: ListItemPersonBinding) : RecyclerView.ViewHolder(binding.root) {
+    class PersonViewHolder(private val binding: ListItemPersonBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        init {
+            binding.setClickListener {
+                binding.person?.let { person ->
+                    navigateToPerson(person, it)
+                }
+            }
+        }
+
+        private fun navigateToPerson(
+            person: Person,
+            view: View
+        ) {
+            val direction = PeopleFragmentDirections.actionPeopleFragmentToDetailFragment()
+            view.findNavController().navigate(direction)
+        }
+
         fun bind(item: Person) {
             binding.apply {
                 person = item
