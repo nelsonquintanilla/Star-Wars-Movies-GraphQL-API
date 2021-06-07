@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/starWarsPeopleFragment">
+    app:startDestination="@id/peopleFragment">
 
     <fragment
-        android:id="@+id/starWarsPeopleFragment"
-        android:name="com.nelsonquintanilla.ravnchallenge.StarWarsPeopleFragment"
-        android:label="StarWarsPeopleFragment"
-        tools:layout="@layout/fragment_star_wars_people" />
+        android:id="@+id/peopleFragment"
+        android:name="com.nelsonquintanilla.ravnchallenge.PeopleFragment"
+        android:label="PeopleFragment"
+        tools:layout="@layout/fragment_people_list" >
+        <action
+            android:id="@+id/action_peopleFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.nelsonquintanilla.ravnchallenge.DetailFragment"
+        android:label="DetailFragment" />
 </navigation>

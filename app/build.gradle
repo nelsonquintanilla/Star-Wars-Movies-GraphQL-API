@@ -28,6 +28,12 @@ android {
         }
     }
 
+    lintOptions {
+        // Disabling ImageView ContentDescription warnings,
+        // since accessibility is not being supported:
+        disable 'ContentDescription'
+    }
+
     // Enable Java 8 features as a requirement of Hilt to use its features.
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -38,6 +44,9 @@ android {
 dependencies {
     // Libs:
     implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    // Module Dependencies:
+    implementation project(":core")
 
     // Common:
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
