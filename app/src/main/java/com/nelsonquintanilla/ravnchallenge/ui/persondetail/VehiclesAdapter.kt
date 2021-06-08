@@ -1,4 +1,4 @@
-package com.nelsonquintanilla.ravnchallenge
+package com.nelsonquintanilla.ravnchallenge.ui.persondetail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import com.nelsonquintanilla.ravnchallenge.databinding.ListItemVehicleBinding
 /**
  * Adapter for the [RecyclerView] in [DetailFragment].
  */
-class VehicleAdapter : ListAdapter<Vehicle, RecyclerView.ViewHolder>(VehicleDiffCallback()) {
+class VehiclesAdapter : ListAdapter<Vehicle, RecyclerView.ViewHolder>(VehicleDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return VehicleViewHolder(

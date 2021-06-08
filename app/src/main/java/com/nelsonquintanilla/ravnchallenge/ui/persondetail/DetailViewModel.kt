@@ -1,4 +1,4 @@
-package com.nelsonquintanilla.ravnchallenge
+package com.nelsonquintanilla.ravnchallenge.ui.persondetail
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel

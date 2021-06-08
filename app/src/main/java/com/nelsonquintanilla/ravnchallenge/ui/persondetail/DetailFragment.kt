@@ -1,4 +1,4 @@
-package com.nelsonquintanilla.ravnchallenge
+package com.nelsonquintanilla.ravnchallenge.ui.persondetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 import com.nelsonquintanilla.core.network.model.Vehicle
+import com.nelsonquintanilla.ravnchallenge.R
 import com.nelsonquintanilla.ravnchallenge.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -52,7 +53,7 @@ class DetailFragment : Fragment() {
     }
 
     private fun setVehicleAdapter(recyclerView: RecyclerView) {
-        val adapter = VehicleAdapter()
+        val adapter = VehiclesAdapter()
         setItemDecorator(recyclerView)
         recyclerView.adapter = adapter
         subscribeUi(adapter)
@@ -69,7 +70,7 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun subscribeUi(adapter: VehicleAdapter) {
+    private fun subscribeUi(adapter: VehiclesAdapter) {
         adapter.submitList(getVehiclesList())
     }
 

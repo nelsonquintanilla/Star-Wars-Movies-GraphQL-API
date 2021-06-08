@@ -1,7 +1,8 @@
-package com.nelsonquintanilla.ravnchallenge
+package com.nelsonquintanilla.ravnchallenge.ui.util
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.nelsonquintanilla.ravnchallenge.R
 import org.apache.commons.text.WordUtils
 
 object BindingAdapter {

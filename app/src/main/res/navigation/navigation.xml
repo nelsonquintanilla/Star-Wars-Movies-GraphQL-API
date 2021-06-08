@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/peopleFragment"
-        android:name="com.nelsonquintanilla.ravnchallenge.PeopleFragment"
+        android:name="com.nelsonquintanilla.ravnchallenge.ui.people.PeopleFragment"
         android:label="PeopleFragment"
         tools:layout="@layout/fragment_people_list">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.nelsonquintanilla.ravnchallenge.DetailFragment"
+        android:name="com.nelsonquintanilla.ravnchallenge.ui.persondetail.DetailFragment"
         android:label="DetailFragment"
         tools:layout="@layout/fragment_detail" >
         <argument

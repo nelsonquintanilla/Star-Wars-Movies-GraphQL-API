@@ -1,4 +1,4 @@
-package com.nelsonquintanilla.ravnchallenge
+package com.nelsonquintanilla.ravnchallenge.ui.people
 
 import android.view.LayoutInflater
 import android.view.View

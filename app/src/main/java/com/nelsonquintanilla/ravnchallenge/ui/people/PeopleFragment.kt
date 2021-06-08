@@ -1,4 +1,4 @@
-package com.nelsonquintanilla.ravnchallenge
+package com.nelsonquintanilla.ravnchallenge.ui.people
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.nelsonquintanilla.core.network.model.*
+import com.nelsonquintanilla.core.network.model.HomeWorld
+import com.nelsonquintanilla.core.network.model.Person
+import com.nelsonquintanilla.core.network.model.Species
+import com.nelsonquintanilla.core.network.model.Vehicle
+import com.nelsonquintanilla.core.network.model.VehicleConnection
+import com.nelsonquintanilla.ravnchallenge.R
 import com.nelsonquintanilla.ravnchallenge.databinding.FragmentPeopleListBinding
 
 /**
@@ -38,7 +43,8 @@ class PeopleFragment : Fragment() {
 
     private fun setItemDecorator(recyclerView: RecyclerView) {
         recyclerView.apply {
-            val dividerItemDecorator = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+            val dividerItemDecorator =
+                DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
             ContextCompat.getDrawable(requireContext(), R.drawable.sh_divider_container)?.let {
                 dividerItemDecorator.setDrawable(it)
             }
