@@ -2,6 +2,7 @@ package com.nelsonquintanilla.ravnchallenge
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import org.apache.commons.text.WordUtils
 
 object BindingAdapter {
 
@@ -15,6 +16,16 @@ object BindingAdapter {
             this.resources.getString(R.string.human_origin_label, homeWorldName)
         } else {
             this.resources.getString(R.string.species_origin_label, speciesName, homeWorldName)
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("capitalizeFully")
+    fun TextView.capitalizeFully(
+        string: String?
+    ) {
+        string?.let {
+            text = WordUtils.capitalizeFully(string)
         }
     }
 }
