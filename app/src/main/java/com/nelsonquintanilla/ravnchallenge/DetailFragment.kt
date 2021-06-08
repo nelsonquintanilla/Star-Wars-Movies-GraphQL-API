@@ -6,16 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
+import com.nelsonquintanilla.core.network.model.Vehicle
 import com.nelsonquintanilla.ravnchallenge.databinding.FragmentDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Shows the detail of a specific Star Wars person.
  */
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
+
+    private val detailViewModel: DetailViewModel by viewModels()
+    private val args: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,8 +33,10 @@ class DetailFragment : Fragment() {
         val binding = FragmentDetailBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
+        binding.viewModel = detailViewModel
         handleUpButtonClick(binding.materialToolbar)
-        setAdapter(binding.rvVehiclesList)
+        setUiData()
+        setVehicleAdapter(binding.rvVehiclesList)
 
         return binding.root
     }
@@ -37,7 +47,11 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun setAdapter(recyclerView: RecyclerView) {
+    private fun setUiData() {
+        detailViewModel.personData.set(args.person)
+    }
+
+    private fun setVehicleAdapter(recyclerView: RecyclerView) {
         val adapter = VehicleAdapter()
         setItemDecorator(recyclerView)
         recyclerView.adapter = adapter
@@ -56,6 +70,14 @@ class DetailFragment : Fragment() {
     }
 
     private fun subscribeUi(adapter: VehicleAdapter) {
-        //adapter.submitList()
+        adapter.submitList(getVehiclesList())
+    }
+
+    private fun getVehiclesList(): List<Vehicle> {
+        val vehiclesList = mutableListOf<Vehicle>()
+        args.person?.vehicleConnection?.vehicleList?.let { vehicles ->
+            vehiclesList.addAll(vehicles)
+        }
+        return vehiclesList
     }
 }

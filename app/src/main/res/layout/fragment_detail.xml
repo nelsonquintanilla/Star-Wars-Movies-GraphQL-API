@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="person"
-            type="com.nelsonquintanilla.core.network.model.Person" />
+            name="viewModel"
+            type="com.nelsonquintanilla.ravnchallenge.DetailViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -24,9 +24,9 @@
                 android:id="@+id/material_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="@{person.name}"
-                app:titleTextColor="@android:color/white"
-                app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="@{viewModel.personData.name}"
+                app:titleTextColor="@android:color/white" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -86,7 +86,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:gravity="center"
-                    android:text="@{person.eyeColor}"
+                    android:text="@{viewModel.personData.eyeColor}"
                     android:textColor="@color/colorRavnBlack"
                     android:textSize="17sp"
                     android:textStyle="bold"
@@ -128,7 +128,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:gravity="center"
-                    android:text="@{person.hairColor}"
+                    android:text="@{viewModel.personData.hairColor}"
                     android:textColor="@color/colorRavnBlack"
                     android:textSize="17sp"
                     android:textStyle="bold"
@@ -170,7 +170,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:gravity="center"
-                    android:text="@{person.skinColor}"
+                    android:text="@{viewModel.personData.skinColor}"
                     android:textColor="@color/colorRavnBlack"
                     android:textSize="17sp"
                     android:textStyle="bold"
@@ -212,7 +212,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:gravity="center"
-                    android:text="@{person.birthYear}"
+                    android:text="@{viewModel.personData.birthYear}"
                     android:textColor="@color/colorRavnBlack"
                     android:textSize="17sp"
                     android:textStyle="bold"
@@ -255,6 +255,7 @@
                     android:layout_marginTop="7dp"
                     android:clipToPadding="false"
                     android:orientation="vertical"
+                    android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

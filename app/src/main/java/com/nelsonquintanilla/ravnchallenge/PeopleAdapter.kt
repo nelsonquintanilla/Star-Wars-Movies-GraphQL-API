@@ -44,7 +44,7 @@ class PeopleAdapter : ListAdapter<Person, RecyclerView.ViewHolder>(PersonDiffCal
             person: Person,
             view: View
         ) {
-            val direction = PeopleFragmentDirections.actionPeopleFragmentToDetailFragment()
+            val direction = PeopleFragmentDirections.actionPeopleFragmentToDetailFragment(person)
             view.findNavController().navigate(direction)
         }
 
