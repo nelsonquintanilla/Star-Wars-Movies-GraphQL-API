@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="person"
+            type="com.nelsonquintanilla.core.network.model.Person" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{clickListener}"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_person_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{person.name}"
+            style="@style/BlackBoldText"
+            app:layout_constraintEnd_toStartOf="@+id/gl_arrow_right"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraint_layout"
+            tools:text="Luke Skywalker" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_person_whereabouts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTextLight"
+            android:textSize="14sp"
+            app:homeWorldName="@{person.homeWorld.homeWorldName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gl_arrow_right"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_person_name"
+            app:speciesName="@{person.species.speciesName}"
+            tools:text="Human from Tatooine" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <ImageView
+            android:id="@+id/iv_arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/tv_person_whereabouts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/gl_arrow_right"
+            app:layout_constraintTop_toTopOf="@id/tv_person_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

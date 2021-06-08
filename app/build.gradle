@@ -1,15 +1,21 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion rootProject.ext.compile_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
+
+    buildFeatures {
+        dataBinding true
+    }
 
     defaultConfig {
         applicationId "com.nelsonquintanilla.ravnchallenge"
-        minSdkVersion 23
-        targetSdkVersion 30
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
         versionCode 1
         versionName "1.0"
 
@@ -22,15 +28,49 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        // Disabling ImageView ContentDescription warnings,
+        // since accessibility is not being supported:
+        disable 'ContentDescription'
+    }
+
+    // Enable Java 8 features as a requirement of Hilt to use its features.
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
+    // Libs:
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    // Module Dependencies:
+    implementation project(":core")
+
+    // Common:
+    implementation rootProject.ext.common.apache_commons
+    implementation rootProject.ext.common.appcompat
+    implementation rootProject.ext.common.constraint_layout
+    implementation rootProject.ext.common.core_ktx
+    implementation rootProject.ext.common.kotlin_stdlib_jdk7
+    implementation rootProject.ext.common.recycler_view
+
+    // Google:
+    implementation rootProject.ext.google.material_design
+
+    // Hilt Dependencies:
+    implementation rootProject.ext.hilt.hilt
+    kapt rootProject.ext.hilt.hilt_compiler
+
+    // Architecture Components:
+    implementation rootProject.ext.arch_components.navigation_fragment
+    implementation rootProject.ext.arch_components.navigation_test
+    implementation rootProject.ext.arch_components.navigation_ui
+
+    // Test Common:
+    implementation rootProject.ext.test_common.espresso
+    implementation rootProject.ext.test_common.junit
+    implementation rootProject.ext.test_common.test_ext_junit
 }
