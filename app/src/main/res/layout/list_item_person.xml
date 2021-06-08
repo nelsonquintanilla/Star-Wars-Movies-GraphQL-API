@@ -31,9 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{person.name}"
-            android:textColor="@color/colorRavnBlack"
-            android:textSize="17sp"
-            android:textStyle="bold"
+            style="@style/BlackBoldText"
             app:layout_constraintEnd_toStartOf="@+id/gl_arrow_right"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/constraint_layout"
@@ -43,13 +41,14 @@
             android:id="@+id/tv_person_whereabouts"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{person.homeWorld.homeWorldName}"
             android:textColor="@color/colorTextLight"
             android:textSize="14sp"
+            app:homeWorldName="@{person.homeWorld.homeWorldName}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/gl_arrow_right"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_person_name"
+            app:speciesName="@{person.species.speciesName}"
             tools:text="Human from Tatooine" />
 
         <androidx.constraintlayout.widget.Guideline

@@ -60,15 +60,12 @@ class PeopleFragment : Fragment() {
                 "blond",
                 "fair",
                 "19BBY",
-                Species(
-                    "c3BlY2llczoy",
-                    "Droid"
-                ),
+                null,
                 HomeWorld(
                     "cGxhbmV0czox",
                     "Tatooine"
                 ),
-                VehicleConnection(generateVehiclesList())
+                VehicleConnection(mutableListOf())
             )
         )
         mockedPeopleList.add(

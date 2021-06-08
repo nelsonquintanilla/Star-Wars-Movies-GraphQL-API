@@ -45,18 +45,22 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_general_label"
+                    style="@style/BlackBoldText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="33dp"
-                    android:text="General Information"
-                    android:textColor="@color/colorRavnBlack"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
+                    android:text="@string/general_information_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.04" />
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/gl_key_value"
@@ -67,29 +71,24 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_eye_label"
+                    style="@style/LightBoldText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="21dp"
-                    android:text="Eye Color"
-                    android:textColor="@color/colorTextLight"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
+                    android:text="@string/eye_color_label"
                     app:layout_constraintEnd_toStartOf="@+id/gl_key_value"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toBottomOf="@+id/tv_general_label" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_eye_value"
+                    style="@style/BlackBoldText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:gravity="center"
                     android:text="@{viewModel.personData.eyeColor}"
-                    android:textColor="@color/colorRavnBlack"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_eye_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/gl_key_value"
@@ -98,40 +97,34 @@
 
                 <View
                     android:id="@+id/v_eye_divider"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="14dp"
                     android:background="@color/colorBlackTransparent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toBottomOf="@+id/tv_eye_label" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_hair_label"
+                    style="@style/LightBoldText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="14dp"
-                    android:text="Hair Color"
-                    android:textColor="@color/colorTextLight"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
+                    android:text="@string/hair_color_label"
                     app:layout_constraintEnd_toStartOf="@+id/gl_key_value"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toBottomOf="@+id/v_eye_divider" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_hair_value"
+                    style="@style/BlackBoldText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:gravity="center"
                     android:text="@{viewModel.personData.hairColor}"
-                    android:textColor="@color/colorRavnBlack"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_hair_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/gl_key_value"
@@ -140,40 +133,34 @@
 
                 <View
                     android:id="@+id/v_hair_divider"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="14dp"
                     android:background="@color/colorBlackTransparent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toBottomOf="@+id/tv_hair_label" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_skin_label"
+                    style="@style/LightBoldText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="14dp"
-                    android:text="Skin Color"
-                    android:textColor="@color/colorTextLight"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
+                    android:text="@string/skin_color_label"
                     app:layout_constraintEnd_toStartOf="@+id/gl_key_value"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toBottomOf="@+id/v_hair_divider" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_skin_value"
+                    style="@style/BlackBoldText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:gravity="center"
                     android:text="@{viewModel.personData.skinColor}"
-                    android:textColor="@color/colorRavnBlack"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_skin_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/gl_key_value"
@@ -182,40 +169,34 @@
 
                 <View
                     android:id="@+id/v_skin_divider"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="14dp"
                     android:background="@color/colorBlackTransparent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toBottomOf="@+id/tv_skin_label" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_birth_label"
+                    style="@style/LightBoldText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="14dp"
-                    android:text="Birth Year"
-                    android:textColor="@color/colorTextLight"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
+                    android:text="@string/birth_year_label"
                     app:layout_constraintEnd_toStartOf="@+id/gl_key_value"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toBottomOf="@+id/v_skin_divider" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_birth_value"
+                    style="@style/BlackBoldText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:gravity="center"
                     android:text="@{viewModel.personData.birthYear}"
-                    android:textColor="@color/colorRavnBlack"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_birth_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/gl_key_value"
@@ -224,28 +205,24 @@
 
                 <View
                     android:id="@+id/v_birth_divider"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="14dp"
                     android:background="@color/colorBlackTransparent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toBottomOf="@+id/tv_birth_label" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tv_vehicles_label"
+                    style="@style/BlackBoldText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
-                    android:text="Vehicles"
-                    android:textColor="@color/colorRavnBlack"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
+                    android:text="@string/vehicles_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gl_margin"
                     app:layout_constraintTop_toBottomOf="@+id/v_birth_divider" />
 
                 <androidx.recyclerview.widget.RecyclerView

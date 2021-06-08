@@ -20,12 +20,10 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_person_name"
+            style="@style/LightBoldText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{vehicle.vehicleName}"
-            android:textColor="@color/colorTextLight"
-            android:textSize="17sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/constraint_layout"

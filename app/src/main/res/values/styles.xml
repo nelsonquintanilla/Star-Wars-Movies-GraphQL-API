@@ -6,4 +6,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- TextView styles -->
+    <style name="BlackBoldText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorRavnBlack</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LightBoldText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorTextLight</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>
