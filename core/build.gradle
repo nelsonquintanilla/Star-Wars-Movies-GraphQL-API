@@ -1,7 +1,6 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.apollographql.apollo'
 
 android {
     compileSdkVersion rootProject.ext.compile_sdk_version
@@ -38,8 +37,17 @@ dependencies {
     implementation rootProject.ext.common.core_ktx
     implementation rootProject.ext.common.kotlin_stdlib_jdk7
 
+    // Apollo:
+    implementation rootProject.ext.apollo.apollo_runtime
+    implementation rootProject.ext.apollo.apollo_coroutines
+
     // Test Common:
     implementation rootProject.ext.test_common.espresso
     implementation rootProject.ext.test_common.junit
     implementation rootProject.ext.test_common.test_ext_junit
+}
+
+apollo {
+    // Instruct the compiler to generate Kotlin models
+    generateKotlinModels.set(true)
 }
