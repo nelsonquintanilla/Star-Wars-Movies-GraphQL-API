@@ -67,6 +67,9 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
+    // Third Party Dependencies
+    implementation "org.apache.commons:commons-text:$apacheCommonsVersion"
+
     // Testing Dependencies
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunit"

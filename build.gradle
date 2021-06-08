@@ -9,6 +9,7 @@ buildscript {
         buildToolsVersion = '30.0.3'
 
         // App dependencies
+        apacheCommonsVersion = "1.8"
         appCompatVersion = '1.3.0'
         constraintLayoutVersion = '2.0.4'
         espressoVersion = '3.3.0'
