@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion rootProject.ext.compile_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
 
     defaultConfig {
-        minSdkVersion 23
-        targetSdkVersion 30
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
         versionCode 1
         versionName "1.0"
 
@@ -33,12 +33,13 @@ android {
 }
 
 dependencies {
+    // Common:
+    implementation rootProject.ext.common.appcompat
+    implementation rootProject.ext.common.core_ktx
+    implementation rootProject.ext.common.kotlin_stdlib_jdk7
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    implementation 'androidx.core:core-ktx:1.5.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    // Test Common:
+    implementation rootProject.ext.test_common.espresso
+    implementation rootProject.ext.test_common.junit
+    implementation rootProject.ext.test_common.test_ext_junit
 }

@@ -5,8 +5,8 @@ apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
-    compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
+    compileSdkVersion rootProject.ext.compile_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
 
     buildFeatures {
         dataBinding true
@@ -14,8 +14,8 @@ android {
 
     defaultConfig {
         applicationId "com.nelsonquintanilla.ravnchallenge"
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
         versionCode 1
         versionName "1.0"
 
@@ -50,28 +50,27 @@ dependencies {
     implementation project(":core")
 
     // Common:
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    implementation "androidx.core:core-ktx:$ktxVersion"
-    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation rootProject.ext.common.apache_commons
+    implementation rootProject.ext.common.appcompat
+    implementation rootProject.ext.common.constraint_layout
+    implementation rootProject.ext.common.core_ktx
+    implementation rootProject.ext.common.kotlin_stdlib_jdk7
+    implementation rootProject.ext.common.recycler_view
 
-    // Navigation Component Dependencies
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    // Google:
+    implementation rootProject.ext.google.material_design
 
-    // UI Components Dependencies
-    implementation "com.google.android.material:material:$materialVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
-    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    // Hilt Dependencies:
+    implementation rootProject.ext.hilt.hilt
+    kapt rootProject.ext.hilt.hilt_compiler
 
-    // Hilt Dependencies
-    implementation "com.google.dagger:hilt-android:$hiltVersion"
-    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+    // Architecture Components:
+    implementation rootProject.ext.arch_components.navigation_fragment
+    implementation rootProject.ext.arch_components.navigation_test
+    implementation rootProject.ext.arch_components.navigation_ui
 
-    // Third Party Dependencies
-    implementation "org.apache.commons:commons-text:$apacheCommonsVersion"
-
-    // Testing Dependencies
-    testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$testExtJunit"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    // Test Common:
+    implementation rootProject.ext.test_common.espresso
+    implementation rootProject.ext.test_common.junit
+    implementation rootProject.ext.test_common.test_ext_junit
 }
