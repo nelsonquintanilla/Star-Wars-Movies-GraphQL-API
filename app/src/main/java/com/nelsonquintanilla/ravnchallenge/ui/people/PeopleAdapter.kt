@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.nelsonquintanilla.core.network.model.Person
+import com.nelsonquintanilla.data.network.model.Person
 import com.nelsonquintanilla.ravnchallenge.databinding.ListItemPersonBinding
 
 /**

@@ -1,11 +1,11 @@
-package com.nelsonquintanilla.core.network.model
+package com.nelsonquintanilla.data.network.model
 
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Vehicle(
+data class HomeWorld(
     val id: String? = null,
-    val vehicleName: String? = null
+    val homeWorldName: String? = null
 ) : Parcelable {
 
     constructor(parcel: Parcel) : this(
@@ -15,19 +15,19 @@ data class Vehicle(
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
-        parcel.writeString(vehicleName)
+        parcel.writeString(homeWorldName)
     }
 
     override fun describeContents(): Int {
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<Vehicle> {
-        override fun createFromParcel(parcel: Parcel): Vehicle {
-            return Vehicle(parcel)
+    companion object CREATOR : Parcelable.Creator<HomeWorld> {
+        override fun createFromParcel(parcel: Parcel): HomeWorld {
+            return HomeWorld(parcel)
         }
 
-        override fun newArray(size: Int): Array<Vehicle?> {
+        override fun newArray(size: Int): Array<HomeWorld?> {
             return arrayOfNulls(size)
         }
     }

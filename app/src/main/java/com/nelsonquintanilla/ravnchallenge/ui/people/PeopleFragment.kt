@@ -8,11 +8,11 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.nelsonquintanilla.core.network.model.HomeWorld
-import com.nelsonquintanilla.core.network.model.Person
-import com.nelsonquintanilla.core.network.model.Species
-import com.nelsonquintanilla.core.network.model.Vehicle
-import com.nelsonquintanilla.core.network.model.VehicleConnection
+import com.nelsonquintanilla.data.network.model.HomeWorld
+import com.nelsonquintanilla.data.network.model.Person
+import com.nelsonquintanilla.data.network.model.Species
+import com.nelsonquintanilla.data.network.model.Vehicle
+import com.nelsonquintanilla.data.network.model.VehicleConnection
 import com.nelsonquintanilla.ravnchallenge.R
 import com.nelsonquintanilla.ravnchallenge.databinding.FragmentPeopleListBinding
 

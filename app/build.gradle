@@ -47,7 +47,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     // Module Dependencies:
-    implementation project(":core")
+    implementation project(':data')
 
     // Common:
     implementation rootProject.ext.common.apache_commons

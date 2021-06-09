@@ -12,7 +12,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
-import com.nelsonquintanilla.core.network.model.Vehicle
+import com.nelsonquintanilla.data.network.model.Vehicle
 import com.nelsonquintanilla.ravnchallenge.R
 import com.nelsonquintanilla.ravnchallenge.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint

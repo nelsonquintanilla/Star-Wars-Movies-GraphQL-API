@@ -1,4 +1,4 @@
-package com.nelsonquintanilla.core
+package com.nelsonquintanilla.data
 
 import org.junit.Test
 

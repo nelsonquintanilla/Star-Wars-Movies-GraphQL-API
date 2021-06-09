@@ -1,4 +1,4 @@
-package com.nelsonquintanilla.core.network.model
+package com.nelsonquintanilla.data.network.model
 
 import android.os.Parcel
 import android.os.Parcelable
