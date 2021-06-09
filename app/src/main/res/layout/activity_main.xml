@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
-    tools:context="com.nelsonquintanilla.ravnchallenge.MainActivity">
+    tools:context="com.nelsonquintanilla.ravnchallenge.ui.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"

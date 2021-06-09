@@ -1,0 +1,26 @@
+query PeopleList {
+    allPeople {
+        people {
+            id
+            name
+            eyeColor
+            hairColor
+            skinColor
+            birthYear
+            species {
+                id
+                name
+            }
+            homeworld {
+                id
+                name
+            }
+            vehicleConnection {
+                vehicles {
+                    id
+                    name
+                }
+            }
+        }
+    }
+}

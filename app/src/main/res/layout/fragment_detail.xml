@@ -238,7 +238,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_vehicles_label"
-                    tools:context="com.nelsonquintanilla.ravnchallenge.MainActivity"
+                    tools:context="com.nelsonquintanilla.ravnchallenge.ui.MainActivity"
                     tools:itemCount="2"
                     tools:listitem="@layout/list_item_vehicle" />
             </androidx.constraintlayout.widget.ConstraintLayout>

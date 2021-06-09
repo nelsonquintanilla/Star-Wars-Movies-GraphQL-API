@@ -57,7 +57,7 @@
                     android:clipToPadding="false"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:context="com.nelsonquintanilla.ravnchallenge.MainActivity"
+                    tools:context="com.nelsonquintanilla.ravnchallenge.ui.MainActivity"
                     tools:itemCount="5"
                     tools:listitem="@layout/list_item_person" />
 

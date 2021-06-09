@@ -1,7 +1,8 @@
-package com.nelsonquintanilla.ravnchallenge
+package com.nelsonquintanilla.ravnchallenge.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.nelsonquintanilla.ravnchallenge.R
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

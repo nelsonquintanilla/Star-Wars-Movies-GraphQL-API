@@ -25,7 +25,6 @@ ext {
 
     // Classpath Dependencies:
     classpath = [
-            apollo_plugin    : "com.apollographql.apollo:apollo-gradle-plugin:${apollo_version}",
             build_gradle     : "com.android.tools.build:gradle:${gradle_version}",
             gradle_pluggin   : "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}",
             hilt_pluggin     : "com.google.dagger:hilt-android-gradle-plugin:${hilt_version}",
