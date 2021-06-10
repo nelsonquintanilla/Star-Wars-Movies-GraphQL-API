@@ -1,62 +1,49 @@
 package com.nelsonquintanilla.ravnchallenge.ui.persondetail
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.appbar.MaterialToolbar
-import com.nelsonquintanilla.data.network.model.Vehicle
+import com.nelsonquintanilla.domain.model.Vehicle
+import com.nelsonquintanilla.ravnchallenge.BR
 import com.nelsonquintanilla.ravnchallenge.R
 import com.nelsonquintanilla.ravnchallenge.databinding.FragmentDetailBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.nelsonquintanilla.ravnchallenge.ui.base.BaseFragment
+import org.koin.android.ext.android.inject
 
 /**
  * Shows the detail of a specific Star Wars person.
  */
-@AndroidEntryPoint
-class DetailFragment : Fragment() {
+class DetailFragment : BaseFragment<FragmentDetailBinding>(
+    R.layout.fragment_detail,
+    BR.viewModel
+) {
 
-    private val detailViewModel: DetailViewModel by viewModels()
+    override val viewModel: DetailViewModel by inject()
+    private val vehiclesAdapter: VehiclesAdapter by lazy { VehiclesAdapter() }
     private val args: DetailFragmentArgs by navArgs()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val binding = FragmentDetailBinding.inflate(inflater, container, false)
-        context ?: return binding.root
-
-        binding.viewModel = detailViewModel
-        handleUpButtonClick(binding.materialToolbar)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        handleUpButtonClick()
+        setUpRecyclerView()
         setUiData()
-        setVehicleAdapter(binding.rvVehiclesList)
-
-        return binding.root
     }
 
-    private fun handleUpButtonClick(materialToolbar: MaterialToolbar) {
-        materialToolbar.setNavigationOnClickListener { view ->
+    private fun handleUpButtonClick() {
+        binding().materialToolbar.setNavigationOnClickListener { view ->
             view.findNavController().navigateUp()
         }
     }
 
-    private fun setUiData() {
-        detailViewModel.personData.set(args.person)
-    }
-
-    private fun setVehicleAdapter(recyclerView: RecyclerView) {
-        val adapter = VehiclesAdapter()
-        setItemDecorator(recyclerView)
-        recyclerView.adapter = adapter
-        subscribeUi(adapter)
+    private fun setUpRecyclerView() {
+        binding().rvVehiclesList.apply {
+            setItemDecorator(this)
+            this.adapter = vehiclesAdapter
+        }
     }
 
     private fun setItemDecorator(recyclerView: RecyclerView) {
@@ -70,8 +57,13 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun subscribeUi(adapter: VehiclesAdapter) {
-        adapter.submitList(getVehiclesList())
+    private fun setUiData() {
+        viewModel.personData.set(args.person)
+        submitVehiclesList()
+    }
+
+    private fun submitVehiclesList() {
+        vehiclesAdapter.submitList(getVehiclesList())
     }
 
     private fun getVehiclesList(): List<Vehicle> {

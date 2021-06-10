@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id "com.apollographql.apollo" version "2.5.8"
 }
 
 android {
@@ -34,9 +33,6 @@ android {
 }
 
 dependencies {
-    // Module Dependencies:
-    implementation project(":domain")
-
     // Common:
     implementation rootProject.ext.common.appcompat
     implementation rootProject.ext.common.core_ktx
@@ -47,25 +43,8 @@ dependencies {
     implementation rootProject.ext.koin.koin_scope
     implementation rootProject.ext.koin.koin_viewmodel
 
-    // Architecture Components:
-    implementation rootProject.ext.arch_components.lifecycle_livedata
-    implementation rootProject.ext.arch_components.lifecycle_runtime
-    implementation rootProject.ext.arch_components.lifecycle_viewmodel
-
-    // Retrofit:
-    implementation rootProject.ext.retrofit.retrofit
-
-    // Apollo:
-    implementation rootProject.ext.apollo.apollo_runtime
-    implementation rootProject.ext.apollo.apollo_coroutines
-
     // Test Common:
     implementation rootProject.ext.test_common.espresso
     implementation rootProject.ext.test_common.junit
     implementation rootProject.ext.test_common.test_ext_junit
-}
-
-apollo {
-    // Instruct the compiler to generate Kotlin models
-    generateKotlinModels.set(true)
 }

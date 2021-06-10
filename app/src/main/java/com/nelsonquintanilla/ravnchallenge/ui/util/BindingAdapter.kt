@@ -1,5 +1,6 @@
 package com.nelsonquintanilla.ravnchallenge.ui.util
 
+import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.nelsonquintanilla.ravnchallenge.R
@@ -28,5 +29,11 @@ object BindingAdapter {
         string?.let {
             text = WordUtils.capitalizeFully(string)
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("visible")
+    fun View.visible(visible: Boolean) {
+        visibility = if (visible) View.VISIBLE else View.GONE
     }
 }

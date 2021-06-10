@@ -6,7 +6,7 @@
 
         <variable
             name="vehicle"
-            type="com.nelsonquintanilla.data.network.model.Vehicle" />
+            type="com.nelsonquintanilla.domain.model.Vehicle" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

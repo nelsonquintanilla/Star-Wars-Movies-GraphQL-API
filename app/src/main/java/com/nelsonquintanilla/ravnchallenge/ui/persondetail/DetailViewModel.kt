@@ -1,12 +1,9 @@
 package com.nelsonquintanilla.ravnchallenge.ui.persondetail
 
 import androidx.databinding.ObservableField
-import androidx.lifecycle.ViewModel
-import com.nelsonquintanilla.data.network.model.Person
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
+import com.nelsonquintanilla.domain.model.Person
+import com.nelsonquintanilla.ravnchallenge.ui.base.BaseViewModel
 
-@HiltViewModel
-class DetailViewModel @Inject constructor() : ViewModel() {
-    var personData = ObservableField<Person>()
+class DetailViewModel : BaseViewModel() {
+    val personData = ObservableField<Person>()
 }

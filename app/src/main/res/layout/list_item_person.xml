@@ -10,7 +10,7 @@
 
         <variable
             name="person"
-            type="com.nelsonquintanilla.data.network.model.Person" />
+            type="com.nelsonquintanilla.domain.model.Person" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -28,10 +28,10 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_person_name"
+            style="@style/BlackBoldText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{person.name}"
-            style="@style/BlackBoldText"
             app:layout_constraintEnd_toStartOf="@+id/gl_arrow_right"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/constraint_layout"
