@@ -7,12 +7,13 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.nelsonquintanilla.core.network.model.Person
+import com.nelsonquintanilla.domain.model.Person
 import com.nelsonquintanilla.ravnchallenge.databinding.ListItemPersonBinding
 
 /**
  * Adapter for the [RecyclerView] in [PeopleFragment].
  */
+
 class PeopleAdapter : ListAdapter<Person, RecyclerView.ViewHolder>(PersonDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

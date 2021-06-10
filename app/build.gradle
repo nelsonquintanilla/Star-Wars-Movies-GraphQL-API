@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
@@ -34,12 +33,6 @@ android {
         // since accessibility is not being supported:
         disable 'ContentDescription'
     }
-
-    // Enable Java 8 features as a requirement of Hilt to use its features.
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
 }
 
 dependencies {
@@ -47,7 +40,8 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     // Module Dependencies:
-    implementation project(":core")
+    implementation project(':data')
+    implementation project(":domain")
 
     // Common:
     implementation rootProject.ext.common.apache_commons
@@ -60,9 +54,10 @@ dependencies {
     // Google:
     implementation rootProject.ext.google.material_design
 
-    // Hilt Dependencies:
-    implementation rootProject.ext.hilt.hilt
-    kapt rootProject.ext.hilt.hilt_compiler
+    // Koin Dependencies:
+    implementation rootProject.ext.koin.koin
+    implementation rootProject.ext.koin.koin_scope
+    implementation rootProject.ext.koin.koin_viewmodel
 
     // Architecture Components:
     implementation rootProject.ext.arch_components.navigation_fragment

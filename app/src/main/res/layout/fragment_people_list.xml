@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.nelsonquintanilla.ravnchallenge.ui.people.PeopleViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
@@ -42,12 +49,12 @@
                     android:textColor="@color/colorTextEmphasis"
                     android:textSize="17sp"
                     android:textStyle="bold"
-                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0"
+                    app:visible="@{viewModel.errorMessageVisibility}"
                     tools:visibility="visible" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -57,7 +64,10 @@
                     android:clipToPadding="false"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:context="com.nelsonquintanilla.ravnchallenge.MainActivity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:context="com.nelsonquintanilla.ravnchallenge.ui.MainActivity"
                     tools:itemCount="5"
                     tools:listitem="@layout/list_item_person" />
 
@@ -68,12 +78,12 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="18dp"
                     android:indeterminate="true"
-                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/rv_people_list"
                     app:layout_constraintVertical_bias="0"
+                    app:visible="@{viewModel.progressBarVisibility}"
                     tools:visibility="visible" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>

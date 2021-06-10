@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.nelsonquintanilla.core.network.model.Vehicle
+import com.nelsonquintanilla.domain.model.Vehicle
 import com.nelsonquintanilla.ravnchallenge.databinding.ListItemVehicleBinding
 
 /**
@@ -28,7 +28,8 @@ class VehiclesAdapter : ListAdapter<Vehicle, RecyclerView.ViewHolder>(VehicleDif
         (holder as VehicleViewHolder).bind(vehicle)
     }
 
-    class VehicleViewHolder(private val binding: ListItemVehicleBinding) : RecyclerView.ViewHolder(binding.root) {
+    class VehicleViewHolder(private val binding: ListItemVehicleBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Vehicle) {
             binding.apply {
                 vehicle = item
