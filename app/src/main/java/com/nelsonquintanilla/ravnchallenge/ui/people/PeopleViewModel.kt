@@ -7,26 +7,38 @@ import com.nelsonquintanilla.domain.model.Person
 import com.nelsonquintanilla.domain.model.util.onFailure
 import com.nelsonquintanilla.domain.model.util.onSuccess
 import com.nelsonquintanilla.ravnchallenge.ui.base.BaseViewModel
-import com.nelsonquintanilla.ravnchallenge.ui.util.Event
 
 class PeopleViewModel(
     private val getPeopleListUseCase: GetPeopleListUseCase
 ) : BaseViewModel() {
 
-    var responseEvent = MutableLiveData<Event<String>>()
     val progressBarVisibility = ObservableBoolean(false)
     val errorMessageVisibility = ObservableBoolean(false)
     val peopleList = MutableLiveData<List<Person>>()
+    var hasNextPage: Boolean = false
+    var lastEndCursor: String? = null
+    var isFirstLoad = true
 
-    fun getPeopleList() = executeUseCase {
+    fun getPeopleList(cursor: String? = null) = executeUseCase {
         progressBarVisibility.set(true)
-        getPeopleListUseCase()
-            .onSuccess {
-                peopleList.postValue(it)
+        getPeopleListUseCase(cursor)
+            .onSuccess { allPeople ->
+                allPeople.pageInfo?.let {
+                    hasNextPage = it.hasNextPage ?: false
+                    lastEndCursor = it.endCursor
+                }
+                peopleList.postValue(allPeople.people)
+                checkForMoreData()
             }
             .onFailure {
                 errorMessageVisibility.set(true)
             }
         progressBarVisibility.set(false)
+    }
+
+    private fun checkForMoreData() {
+        if (hasNextPage) {
+            getPeopleList(lastEndCursor)
+        }
     }
 }

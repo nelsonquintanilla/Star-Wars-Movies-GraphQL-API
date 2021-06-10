@@ -26,19 +26,21 @@ class PeopleFragment : BaseFragment<FragmentPeopleListBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.apply {
-            peopleList.observe(viewLifecycleOwner, peopleListObserver())
-            getPeopleList()
-        }
         setUpRecyclerView()
+        viewModel.apply {
+            if (isFirstLoad) {
+                isFirstLoad = false
+                peopleList.observe(viewLifecycleOwner, peopleListObserver())
+                getPeopleList()
+            }
+        }
     }
 
-    private fun peopleListObserver() = Observer<List<Person>> {
-        submitPeopleList(it)
-    }
-
-    private fun submitPeopleList(peopleList: List<Person>) {
-        peopleAdapter.submitList(peopleList)
+    private fun peopleListObserver() = Observer<List<Person>> { peopleList ->
+        val cumulativePeopleList = mutableListOf<Person>()
+        cumulativePeopleList.addAll(peopleAdapter.currentList)
+        cumulativePeopleList.addAll(peopleList)
+        peopleAdapter.submitList(cumulativePeopleList)
     }
 
     private fun setUpRecyclerView() {

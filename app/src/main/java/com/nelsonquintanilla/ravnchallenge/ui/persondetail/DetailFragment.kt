@@ -35,7 +35,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(
 
     private fun handleUpButtonClick() {
         binding().materialToolbar.setNavigationOnClickListener { view ->
-            view.findNavController().navigateUp()
+            view.findNavController().popBackStack()
         }
     }
 

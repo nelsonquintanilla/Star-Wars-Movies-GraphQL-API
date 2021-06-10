@@ -1,5 +1,5 @@
-query PeopleList {
-    allPeople {
+query PeopleList($size: Int, $cursor: String) {
+    allPeople(first: $size, after: $cursor) {
         people {
             id
             name
@@ -21,6 +21,12 @@ query PeopleList {
                     name
                 }
             }
+        }
+        pageInfo {
+            hasNextPage
+            hasPreviousPage
+            startCursor
+            endCursor
         }
     }
 }
