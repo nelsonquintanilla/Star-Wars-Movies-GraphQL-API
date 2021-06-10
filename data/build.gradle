@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id "com.apollographql.apollo" version "2.5.8"
+}
+
+android {
+    compileSdkVersion rootProject.ext.compile_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // Module Dependencies:
+    implementation project(":domain")
+
+    // Common:
+    implementation rootProject.ext.common.appcompat
+    implementation rootProject.ext.common.core_ktx
+    implementation rootProject.ext.common.kotlin_stdlib_jdk7
+
+    // Koin Dependencies:
+    implementation rootProject.ext.koin.koin
+    implementation rootProject.ext.koin.koin_scope
+    implementation rootProject.ext.koin.koin_viewmodel
+
+    // Architecture Components:
+    implementation rootProject.ext.arch_components.lifecycle_livedata
+    implementation rootProject.ext.arch_components.lifecycle_runtime
+    implementation rootProject.ext.arch_components.lifecycle_viewmodel
+
+    // Retrofit:
+    implementation rootProject.ext.retrofit.retrofit
+
+    // Apollo:
+    implementation rootProject.ext.apollo.apollo_runtime
+    implementation rootProject.ext.apollo.apollo_coroutines
+
+    // Test Common:
+    implementation rootProject.ext.test_common.espresso
+    implementation rootProject.ext.test_common.junit
+    implementation rootProject.ext.test_common.test_ext_junit
+}
+
+apollo {
+    // Instruct the compiler to generate Kotlin models
+    generateKotlinModels.set(true)
+}

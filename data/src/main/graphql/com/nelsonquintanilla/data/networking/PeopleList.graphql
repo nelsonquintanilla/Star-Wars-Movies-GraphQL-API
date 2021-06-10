@@ -1,0 +1,32 @@
+query PeopleList($size: Int, $cursor: String) {
+    allPeople(first: $size, after: $cursor) {
+        people {
+            id
+            name
+            eyeColor
+            hairColor
+            skinColor
+            birthYear
+            species {
+                id
+                name
+            }
+            homeworld {
+                id
+                name
+            }
+            vehicleConnection {
+                vehicles {
+                    id
+                    name
+                }
+            }
+        }
+        pageInfo {
+            hasNextPage
+            hasPreviousPage
+            startCursor
+            endCursor
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Ravn Challenge Nelson Quintanilla</string>
+
+    <!-- Errors -->
+    <string name="fail_error_label">Failed to Load Data</string>
+
+    <!-- People Screen -->
+    <string name="toolbar_title_label">People of Star Wars</string>
+    <string name="human_origin_label">Human from %1$s</string>
+    <string name="species_origin_label">%1$s from %2$s</string>
+
+    <!-- Detail Screen -->
+    <string name="general_information_label">General Information</string>
+    <string name="eye_color_label">Eye Color</string>
+    <string name="hair_color_label">Hair Color</string>
+    <string name="skin_color_label">Skin Color</string>
+    <string name="birth_year_label">Birth Year</string>
+    <string name="vehicles_label">Vehicles</string>
+</resources>

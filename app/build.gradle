@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion rootProject.ext.compile_sdk_version
+    buildToolsVersion rootProject.ext.build_tools_version
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    defaultConfig {
+        applicationId "com.nelsonquintanilla.ravnchallenge"
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        // Disabling ImageView ContentDescription warnings,
+        // since accessibility is not being supported:
+        disable 'ContentDescription'
+    }
+}
+
+dependencies {
+    // Libs:
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    // Module Dependencies:
+    implementation project(':data')
+    implementation project(":domain")
+
+    // Common:
+    implementation rootProject.ext.common.apache_commons
+    implementation rootProject.ext.common.appcompat
+    implementation rootProject.ext.common.constraint_layout
+    implementation rootProject.ext.common.core_ktx
+    implementation rootProject.ext.common.kotlin_stdlib_jdk7
+    implementation rootProject.ext.common.recycler_view
+
+    // Google:
+    implementation rootProject.ext.google.material_design
+
+    // Koin Dependencies:
+    implementation rootProject.ext.koin.koin
+    implementation rootProject.ext.koin.koin_scope
+    implementation rootProject.ext.koin.koin_viewmodel
+
+    // Architecture Components:
+    implementation rootProject.ext.arch_components.navigation_fragment
+    implementation rootProject.ext.arch_components.navigation_test
+    implementation rootProject.ext.arch_components.navigation_ui
+
+    // Test Common:
+    implementation rootProject.ext.test_common.espresso
+    implementation rootProject.ext.test_common.junit
+    implementation rootProject.ext.test_common.test_ext_junit
+}

@@ -1,0 +1,85 @@
+// With the purpose of having a single source of truth for all modules,
+// all versions are defined here.
+ext {
+    // Sdk and tools versions:
+    build_tools_version = "30.0.3"
+    compile_sdk_version = 30
+    min_sdk_version = 23
+    target_sdk_version = 30
+
+    // Dependencies versions:
+    apache_commons_version = "1.8"
+    apollo_version = "2.5.8"
+    appcompat_version = '1.3.0'
+    constraint_layout_version = '2.0.4'
+    espresso_version = '3.3.0'
+    gradle_version = '4.2.1'
+    junit_version = '4.13.2'
+    koin_version = '2.1.1'
+    kotlin_version = '1.5.0'
+    ktx_version = '1.5.0'
+    lifecycle_version = '2.2.0'
+    material_version = '1.3.0'
+    nav_version = '2.3.5'
+    recycler_view_version = '1.2.1'
+    retrofit_version = '2.7.2'
+    test_ext_junit = '1.1.2'
+
+    // Classpath Dependencies:
+    classpath = [
+            build_gradle     : "com.android.tools.build:gradle:${gradle_version}",
+            gradle_pluggin   : "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}",
+            nav_pluggin      : "androidx.navigation:navigation-safe-args-gradle-plugin:${nav_version}",
+            safe_args_pluggin: "androidx.navigation:navigation-safe-args-gradle-plugin:${nav_version}"
+    ]
+
+    // Common Dependencies:
+    common = [
+            apache_commons    : "org.apache.commons:commons-text:${apache_commons_version}",
+            appcompat         : "androidx.appcompat:appcompat:${appcompat_version}",
+            constraint_layout : "androidx.constraintlayout:constraintlayout:${constraint_layout_version}",
+            core_ktx          : "androidx.core:core-ktx:${ktx_version}",
+            kotlin_stdlib_jdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}",
+            recycler_view     : "androidx.recyclerview:recyclerview:${recycler_view_version}"
+    ]
+
+    // Google Dependencies:
+    google = [
+            material_design: "com.google.android.material:material:${material_version}"
+    ]
+
+    // Koin Dependencies:
+    koin = [
+            koin          : "org.koin:koin-android:${koin_version}",
+            koin_scope    : "org.koin:koin-androidx-scope:${koin_version}",
+            koin_viewmodel: "org.koin:koin-androidx-viewmodel:${koin_version}"
+    ]
+
+    // Architecture Components Dependencies:
+    arch_components = [
+            lifecycle_livedata : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_version}",
+            lifecycle_runtime  : "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycle_version}",
+            lifecycle_viewmodel: "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_version}",
+            navigation_fragment: "androidx.navigation:navigation-fragment-ktx:${nav_version}",
+            navigation_test    : "androidx.navigation:navigation-testing:${nav_version}",
+            navigation_ui      : "androidx.navigation:navigation-ui-ktx:${nav_version}"
+    ]
+
+    // Retrofit Dependencies:
+    retrofit = [
+            retrofit: "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    ]
+
+    // Apollo Dependencies:
+    apollo = [
+            apollo_coroutines: "com.apollographql.apollo:apollo-coroutines-support:${apollo_version}",
+            apollo_runtime   : "com.apollographql.apollo:apollo-runtime:${apollo_version}"
+    ]
+
+    // Test Common Dependencies:
+    test_common = [
+            espresso      : "androidx.test.espresso:espresso-core:${espresso_version}",
+            junit         : "junit:junit:${junit_version}",
+            test_ext_junit: "androidx.test.ext:junit:${test_ext_junit}"
+    ]
+}
