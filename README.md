@@ -1,4 +1,4 @@
-# Ravn-Challenge-V2-Nelson-Quintanilla
+# Star-Wars-Movies-GraphQL-API
 
 ## Project description
 * Android app that uses the Star Wars GraphQL API to load a list of all the characters from Star Wars movies. For each item on the list it also has a detailed view that shows more details of the character, such as eye color, hair color, skin color, birth year, and vehicles asociated with them. 
